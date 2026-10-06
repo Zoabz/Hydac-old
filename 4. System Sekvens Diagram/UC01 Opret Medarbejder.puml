@@ -1,11 +1,10 @@
 @startuml
 skinparam style strictuml
-title UC01 - Opret Medarbejder
+title UC01 - Opret medarbejder
 
 actor Medarbejder
 participant ":System" as System
 
-Medarbejder -> System : Opret Medarbejder(Navn, Kode)
+Medarbejder -> System : opretMedarbejder(brugernavn, kode)
 System --> Medarbejder : Medarbejder oprettet
 @enduml
-

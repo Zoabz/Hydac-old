@@ -1,0 +1,12 @@
+@startuml
+skinparam style strictuml
+title UC05 - Tjek gæst ind
+
+actor Medarbejder
+participant ":System" as System
+
+Medarbejder -> System : tjekInd(indtjekningskode)
+System --> Medarbejder : Sikkerhedsfolder modtaget? (ja/nej)
+Medarbejder -> System : angivSikkerhedsfolderModtaget(ja/nej)
+System --> Medarbejder : Status = "Tjekket Ind", indtjekningstid
+@enduml

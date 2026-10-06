@@ -30,8 +30,8 @@ class "Medarbejder" as Medarbejder {
 
 class "Besøg" as Besog {
     dato
-    forventet ankomst tid
-    forventet afgangs tid
+    forventet ankomsttid
+    forventet afgangstid
     lokale
     status
     indtjekningskode
@@ -43,12 +43,12 @@ class "Gæst" as Gaest {
 }
 
 class "Indtjekning" as Indtjekning {
-    indtjeknings tid
-    sikkerhedsfolder modtagelse
+    indtjekningstid
+    sikkerhedsfolder modtaget
 }
 
 class "Udtjekning" as Udtjekning {
-    udtjeknings tid
+    udtjekningstid
 }
 
 

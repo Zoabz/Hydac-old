@@ -1,0 +1,10 @@
+@startuml
+skinparam style strictuml
+title UC03 - Vis medarbejderliste
+
+actor Medarbejder
+participant ":System" as System
+
+Medarbejder -> System : visMedarbejderliste(brugernavn)
+System --> Medarbejder : medarbejderliste (brugernavn)
+@enduml
