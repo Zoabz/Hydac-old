@@ -1,0 +1,83 @@
+@startuml
+title HYDAC Designklassediagram
+
+hide circle
+hide empty members
+
+skinparam classAttributeIconSize 0
+skinparam nodesep 80
+skinparam ranksep 80
+
+skinparam class {
+    BackgroundColor white
+    BorderColor #555555
+}
+
+class Menu <<static>> {
+    - {static} erLoggetInd : bool
+    - {static} aktivMedarbejder : Medarbejder?
+    - {static} medarbejderliste : List<Medarbejder>
+    - {static} gæsteliste : List<Besøg>
+    --
+    + {static} VisMenu() : void
+    - {static} LogInd() : void
+    - {static} LogUd() : void
+    - {static} OpretMedarbejder() : void
+    - {static} OpretBesøg() : void
+    - {static} VisMedarbejderliste() : void
+    - {static} VisGæsteliste() : void
+    - {static} TjekInd() : void
+    - {static} TjekUd() : void
+    - {static} FindMedarbejder(brugernavn : string) : Medarbejder?
+    - {static} FindBesøg(indtjekningskode : int) : Besøg?
+    - {static} GenererIndtjekningskode() : int
+    - {static} VentPåEnter() : void
+}
+
+class Medarbejder {
+    + Brugernavn : string
+    - kode : string
+    --
+    + Medarbejder(brugernavn : string, kode : string)
+    + TjekKode(kode : string) : bool
+}
+
+class Besøg {
+    + {static} IkkeTjekketInd : string = "Ikke Tjekket Ind"
+    + {static} TjekketInd : string = "Tjekket Ind"
+    + {static} TjekketUd : string = "Tjekket Ud"
+    + GæstNavn : string
+    + Firma : string
+    + Ansvarlig : Medarbejder
+    + Dato : DateTime
+    + ForventetAnkomsttid : DateTime
+    + ForventetAfgangstid : DateTime
+    + Lokale : string
+    + Indtjekningskode : int
+    + Status : string
+    + Indtjekningstid : DateTime?
+    + SikkerhedsfolderModtaget : bool
+    + Udtjekningstid : DateTime?
+    --
+    + Besøg(gæstNavn : string, firma : string, ansvarlig : Medarbejder,
+        dato : DateTime, forventetAnkomsttid : DateTime,
+        forventetAfgangstid : DateTime, lokale : string,
+        indtjekningskode : int)
+    + TjekInd(sikkerhedsfolderModtaget : bool) : void
+    + TjekUd() : void
+}
+
+note right of Besøg
+    Domænemodellens Gæst, Indtjekning og
+    Udtjekning er foldet ind i Besøg:
+    Gæst.navn → GæstNavn, Gæst.firma → Firma,
+    Indtjekning → Indtjekningstid og
+    SikkerhedsfolderModtaget,
+    Udtjekning → Udtjekningstid.
+end note
+
+Menu "1" --> "0..*" Besøg : gæsteliste
+Menu "1" --> "1..*" Medarbejder : medarbejderliste
+Besøg "0..*" --> "1" Medarbejder : Ansvarlig
+
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+skinparam style strictuml
+title UC02 - Opret besøg
+
+actor Medarbejder
+participant ":System" as System
+
+Medarbejder -> System : opretBesøg(navn, firma, dato, forventetAnkomsttid,\nforventetAfgangstid, lokale, ansvarlig)
+System --> Medarbejder : Besøg oprettet, indtjekningskode
+@enduml
