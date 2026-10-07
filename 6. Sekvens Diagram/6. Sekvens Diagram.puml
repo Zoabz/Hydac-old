@@ -1,0 +1,38 @@
+@startuml
+skinparam style strictuml
+skinparam ParticipantBackgroundColor white
+skinparam NoteBackgroundColor white
+skinparam SequenceLifeLineBackgroundColor white
+skinparam SequenceGroupBackgroundColor white
+title SD: UC02 Opret besøg
+
+participant "Menu" as M
+participant "gæsteliste : List<Besøg>" as L
+
+[-> M : OpretBesøg()
+activate M
+
+opt erLoggetInd
+    note over M
+        gæstNavn, firma, dato, forventetAnkomsttid,
+        forventetAfgangstid, lokale og ansvarligs
+        brugernavn indlæses fra konsollen
+    end note
+
+    M -> M : ansvarlig = FindMedarbejder(brugernavn)
+    M -> M : indtjekningskode = GenererIndtjekningskode()
+
+    create participant "b : Besøg" as B
+    M -> B : create(gæstNavn, firma, ansvarlig, dato,\nforventetAnkomsttid, forventetAfgangstid,\nlokale, indtjekningskode)
+    activate B
+    rnote over B
+        Status = "Ikke Tjekket Ind"
+        SikkerhedsfolderModtaget = false
+    end rnote
+    deactivate B
+
+    M -> L : Add(b)
+end
+[<-- M
+deactivate M
+@enduml

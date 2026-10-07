@@ -1,0 +1,10 @@
+@startuml
+skinparam style strictuml
+title UC06 - Tjek gæst ud
+
+actor Medarbejder
+participant ":System" as System
+
+Medarbejder -> System : tjekUd(indtjekningskode)
+System --> Medarbejder : Status = "Tjekket Ud", udtjekningstid
+@enduml
