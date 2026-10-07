@@ -6,7 +6,7 @@ skinparam SequenceLifeLineBackgroundColor white
 skinparam SequenceGroupBackgroundColor white
 title SD: UC02 Opret besøg
 
-participant "Menu" as M
+participant "menu : Menu" as M
 participant "gæsteliste : List<Besøg>" as L
 
 [-> M : OpretBesøg()

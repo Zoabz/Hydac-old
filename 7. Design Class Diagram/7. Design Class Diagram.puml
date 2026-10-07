@@ -13,25 +13,25 @@ skinparam class {
     BorderColor #555555
 }
 
-class Menu <<static>> {
-    - {static} erLoggetInd : bool
-    - {static} aktivMedarbejder : Medarbejder?
-    - {static} medarbejderliste : List<Medarbejder>
-    - {static} gæsteliste : List<Besøg>
+class Menu {
+    - erLoggetInd : bool
+    - aktivMedarbejder : Medarbejder?
+    - medarbejderliste : List<Medarbejder>
+    - gæsteliste : List<Besøg>
     --
-    + {static} VisMenu() : void
-    - {static} LogInd() : void
-    - {static} LogUd() : void
-    - {static} OpretMedarbejder() : void
-    - {static} OpretBesøg() : void
-    - {static} VisMedarbejderliste() : void
-    - {static} VisGæsteliste() : void
-    - {static} TjekInd() : void
-    - {static} TjekUd() : void
-    - {static} FindMedarbejder(brugernavn : string) : Medarbejder?
-    - {static} FindBesøg(indtjekningskode : int) : Besøg?
-    - {static} GenererIndtjekningskode() : int
-    - {static} VentPåEnter() : void
+    + VisMenu() : void
+    - LogInd() : void
+    - LogUd() : void
+    - OpretMedarbejder() : void
+    - OpretBesøg() : void
+    - VisMedarbejderliste() : void
+    - VisGæsteliste() : void
+    - TjekInd() : void
+    - TjekUd() : void
+    - FindMedarbejder(brugernavn : string) : Medarbejder?
+    - FindBesøg(indtjekningskode : int) : Besøg?
+    - GenererIndtjekningskode() : int
+    - VentPåEnter() : void
 }
 
 class Medarbejder {

@@ -1,9 +1,5 @@
 using System;
-<<<<<<< HEAD
-using System.Collections.Generic;
-=======
 
->>>>>>> 321326faa388b69de7465d748bb1fa0487b4fba3
 namespace Hydac
 {
     // Domæneklasse. Gæst, Indtjekning og Udtjekning fra domænemodellen er
@@ -56,8 +52,6 @@ namespace Hydac
             Status = IkkeTjekketInd;
             SikkerhedsfolderModtaget = false;
         }
-<<<<<<< HEAD
-=======
 
         // UC05 Tjek gæst ind
         public void TjekInd(bool sikkerhedsfolderModtaget)
@@ -79,6 +73,5 @@ namespace Hydac
             Status = TjekketUd;
             Udtjekningstid = DateTime.Now;
         }
->>>>>>> 321326faa388b69de7465d748bb1fa0487b4fba3
     }
 }

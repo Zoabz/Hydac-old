@@ -1,11 +1,4 @@
 using System;
-<<<<<<< HEAD
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics.SymbolStore;
-using System.Text;
-=======
->>>>>>> 321326faa388b69de7465d748bb1fa0487b4fba3
 
 namespace Hydac
 {
@@ -18,11 +11,6 @@ namespace Hydac
         public Medarbejder(string brugernavn, string kode)
         {
             Brugernavn = brugernavn;
-<<<<<<< HEAD
-            Kode = kode;
-
-        }
-=======
             this.kode = kode;
         }
 
@@ -30,6 +18,5 @@ namespace Hydac
         {
             return this.kode == kode;
         }
->>>>>>> 321326faa388b69de7465d748bb1fa0487b4fba3
     }
 }
